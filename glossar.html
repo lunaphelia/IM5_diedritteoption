@@ -9,42 +9,37 @@
 </head>
 <body>
     <header>
-        <nav>
-        <li>
-            <a href="/index.html">Startseite</a>
-        </li>
-        <li><a href="/glossar.html">Glossar</a></li>
-            <li><a href="/about.html">About</a></li>
-          </nav>
-        <h1>Die dritte Option</h1>
+
+        <ul class="topnav">
+            <li><a href="/index.html">Startseite</a></li>
+            <li><a  class="active" href="/glossar.html">Glossar</a></li>
+            <li class="right"><a href="/about.html">About</a></li>
+          </ul>
+        <div class="container">  
+        <h1>Glossar</h1>
+        <p>Hallo dies ist ein glossar</p>
+    </div>
     </header>    
     
     <main>
-        <section>
-            <h2>Was ist die dritte Option? Die dritte Option und der Geschlechtseintrag</h2>
-            <p>Die dritte Option ist eine Organisation, die sich für die Schaffung eines dritten juristischen Geschlechtseintrag einsetzte. Sie kritisiert den Eintrag “divers”, den es seit dem 01.01.2019 gibt. Der Name bezieht sich auf einen Schirmbegriff für viele Geschlechter, nicht darauf, dass es ein einzelnes drittes Geschlecht gibt.</p>
-        </section>
+        <div class="glossary">
+            <div class="term" id="termA">
+                <h2>A</h2>
+                <p>Definition für A. Mehr lesen <span class="read-more" onclick="toggleText('termA')">hier</span>.</p>
+            </div>
 
-        <section>
-            <h2>Mehr als zwei Geschlechter</h2>
-            <p>Viele Menschen identifizieren sich nicht ausschließlich als männlich oder weiblich. Die Einführung einer dritten Geschlechtsoption ermöglicht es Menschen, ihre Geschlechtsidentität genauer zu repräsentieren.</p>
+            <div class="term" id="termB">
+                <h2>B</h2>
+                <p>Definition für B. Mehr lesen <span class="read-more" onclick="toggleText('termB')">hier</span>.</p>
+            </div>
 
-            <form>
-                <select name="gender">
-                    <option name="gender" value="male"> Männlich
-                </label>
-                <label>
-                    <option name="gender" value="female"> Weiblich
-                </label>
-                <label>
-                    <option name="gender" value="nonbinary"> Nichtbinär
-                </label>
-            </select>
-
-                <button type="button" onclick="submitForm()">Absenden</button>
-            </form>
-        </section>
+            <div class="term" id="termB">
+                <h2>B</h2>
+                <p>Definition für B. Mehr lesen <span class="read-more" onclick="toggleText('termB')">hier</span>.</p>
+            </div>
+        </div>
     </main>
+
     <footer>
         <p>Author: Linda Muerset</p>
         <p><a href="mailto:lindamurset@gmail.com">E-Mail</a></p>
