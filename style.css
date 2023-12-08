@@ -1,69 +1,159 @@
-body {
-    font-family: Arial, sans-serif;
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+/* Variables */
+:root {
+    --bg-color: #151320;
+    --conic-gradient: conic-gradient(
+        #FF2E2E,
+        #FF831E,
+        #FCFF51,
+        #58FF57,
+        #575FFF,
+        #D257FF,
+        #FF57E5,
+        #FF1556
+    );
+}
+
+/* Reset and General Styles */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f2f2f2;
-    scroll-behavior: smooth; /* Enable smooth scrolling */
+    box-sizing: border-box;
 }
 
-header {
-    background-color: #7F5CA3;
-    color: #FFED00;
-    text-align: left;
-    padding: 0em;
-    border-bottom: 4px solid #0E1111;
-    width: 100%; /* Make the header full-width */
-    height: 100vh; /* Make the header full-height (viewport height) */
-    box-sizing: border-box; /* Include padding and border in the total width/height */
+body {
+    font-family: 'Inter', sans-serif, Arial, sans-serif;
+    background-color: #f2f2f2;
+    min-height: 100vh;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    scroll-behavior: smooth;
 }
+
+/* Header */
 
 h1 {
-    font-size: 3em; /* Adjust the font size as needed */
-    margin-bottom: 0px; /* Add space below the h1 */
+    font-size: 3em;
+    margin-bottom: 0px;
 }
 
 .container {
-    padding-left: 30vh; /* Adjust the left padding as needed */
-    padding-top: 30vh;
+    padding-left: 30vh;
+    padding-top: 20vh;
+}
+
+header {
+    background-color: #FAF9F6;
+    color: #7F5CA3;
+    text-align: left;
+    padding: 0em;
+    height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 2px solid #0E1111;
 }
 
 /* Navigation */
-
 ul.topnav {
-  list-style-type: none;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #0E1111;
+    list-style-type: none;
+    position: fixed;
+    top: 0;
+    width: 100%; /* Make the navbar full width */
+    margin: 0;
+    padding: 0.1em;
+    overflow: hidden;
+    background-color: #0E1111;
 }
 
-ul.topnav li {float: left;}
+ul.topnav li {
+    float: left;
+    position: relative; /* Relative positioning for the rectangle */
+}
 
 ul.topnav li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 20px 40px;
-  text-decoration: none;
+    width: 10em;
+    height: 4em;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 40px;
+    text-decoration: none;
+    border-radius: 2em;
+    border: 2px solid transparent;
+    position: relative; /* Relative positioning for the rectangle */
+    overflow: hidden;
 }
 
-ul.topnav a:hover:not(.active) {background-color: #7F5CA3;
-    color: #FFED00;}
+ul.topnav li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: -1;
+}
 
-ul.topnav a.active {background-color: #FFED00;
-    color: #7F5CA3;}
+ul.topnav li a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 2em; /* Same border-radius as the main button */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    animation: spin 5s linear infinite;
+    background-image: var(--conic-gradient);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    z-index: -2;
+    transition: transform 0.3s ease; /* Add transition for smooth effect */
+}
 
-ul.topnav li.right {float: right;}
+ul.topnav li a:hover::after {
+    transform: rotate(360deg); /* Trigger the animation on hover */
+}
 
+ul.topnav a:hover:not(.active) {
+    background-color: #7F5CA3;
+    color: #FFED00;
+}
+
+ul.topnav a.active {
+    background-color: #FFED00;
+    color: #7F5CA3;
+}
+
+ul.topnav li.right {
+    float: right;
+}
+
+/* Animation Keyframes */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Main */
+main {
+    padding: 0px;
+    width: 100%;
+}
+
+/* Sections */
 section {
-    height: 100vh; /* Set the height of each section to the viewport height */
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-sizing: border-box;
+    height: 100vh;
+    padding: 20vw;
 }
 
 section:nth-child(odd) {
@@ -74,17 +164,80 @@ section:nth-child(even) {
     background-color: #ddd;
 }
 
-@media screen and (max-width: 600px) {
-  ul.topnav li.right, 
-  ul.topnav li {float: none;}
+/* Rainbow Button */
+.btn {
+    width: 10em;
+    height: 4em;
+    border-radius: 3em;
+    box-shadow: 0 1em 1em rgba(0, 0, 0, .5);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform .3s ease;
 }
 
+.btn::before {
+    content: '';
+    position: absolute;
+    width: 110%;
+    height: 350%;
+    background: var(--conic-gradient);
+}
+
+.btn::after {
+    content: 'mehr lesen';
+    position: absolute;
+    background-color: #fff;
+    width: 96%;
+    height: 86%;
+    border-radius: 3em;
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+.btn:hover::before {
+    animation: spin 1.5s infinite linear;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animation {
+    opacity: 0;
+    transform: translateX(-300px);
+    transition: all 0.7s ease-out;
+    transition-delay: 0.4s;
+
+}
+
+.scroll-animation {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* Form and Scroll Buttons */
 label {
     display: block;
     margin-bottom: 8px;
 }
 
-button.form {
+button.form,
+button.scroll {
     padding: 10px 20px;
     background-color: #333;
     color: #fff;
@@ -96,25 +249,18 @@ button.scroll {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
 }
 
+/* Footer */
 footer {
     background-color: #333;
     color: #fff;
     padding: 20px;
-    text-align: left;
+    text-align: center;
+    width: 100%;
 }
 
-h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
+/* Glossary */
 .glossary {
     display: flex;
     flex-wrap: wrap;
@@ -136,7 +282,14 @@ h2 {
     text-decoration: underline;
 }
 
+/* Mobile-First */
 @media screen and (min-width: 600px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     nav {
         flex-direction: row;
     }
@@ -147,6 +300,8 @@ h2 {
     }
 
     main {
-        margin-top: 80px; /* Adjusted margin to avoid content overlapping fixed navigation*/
+        max-width: 100vw;
+        width: 100%;
+        margin: 0 auto;
     }
 }
