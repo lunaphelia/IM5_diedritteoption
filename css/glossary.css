@@ -1,0 +1,199 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+/* Reset and General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif, Arial, sans-serif;
+    background-color: #f2f2f2;
+    min-height: 100vh;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    scroll-behavior: smooth;
+}
+
+
+/* Header */
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 0px;
+}
+
+.container {
+    padding-left: 30vh;
+    padding-top: 20vh;
+}
+
+header {
+    background-color: #FAF9F6;
+    color: #7F5CA3;
+    text-align: left;
+    padding: 0em;
+    height: 400px;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 2px solid #0E1111;
+}
+
+/* Navigation */
+ul.topnav {
+    list-style-type: none;
+    position: fixed;
+    top: 0;
+    width: 100%; /* Make the navbar full width */
+    margin: 0;
+    padding: 0.1em;
+    overflow: hidden;
+    background-color: #0E1111;
+}
+
+ul.topnav li {
+    float: left;
+    position: relative; /* Relative positioning for the rectangle */
+}
+
+ul.topnav li a {
+    width: 10em;
+    height: 4em;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 40px;
+    text-decoration: none;
+    border-radius: 2em;
+    border: 2px solid transparent;
+    position: relative; /* Relative positioning for the rectangle */
+    overflow: hidden;
+}
+
+ul.topnav li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: -1;
+}
+
+ul.topnav li a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 2em; /* Same border-radius as the main button */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    animation: spin 5s linear infinite;
+    background-image: var(--conic-gradient);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    z-index: -2;
+    transition: transform 0.3s ease; /* Add transition for smooth effect */
+}
+
+ul.topnav li a:hover::after {
+    transform: rotate(360deg); /* Trigger the animation on hover */
+}
+
+ul.topnav a:hover:not(.active) {
+    background-color: #7F5CA3;
+    color: #FFED00;
+}
+
+ul.topnav a.active {
+    background-color: #FFED00;
+    color: #7F5CA3;
+}
+
+ul.topnav li.right {
+    float: right;
+}
+
+/* Main */
+main {
+    padding: 20px;
+    width: 100%;
+}
+
+/* Sections */
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20vw;
+}
+
+section:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+section:nth-child(even) {
+    background-color: #ddd;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Glossary */
+.glossary {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.term {
+    width: 48%;
+    margin-bottom: 20px;
+}
+
+.term p {
+    display: block;
+}
+
+.read-more {
+    color: #333;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* Mobile-First */
+@media screen and (min-width: 600px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav {
+        flex-direction: row;
+    }
+
+    nav a {
+        margin-bottom: 0;
+        margin-right: 20px;
+    }
+
+    main {
+        max-width: 100vw;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
