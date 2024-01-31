@@ -61,3 +61,4 @@ function toggleText(termId) {
         content.style.display = 'none';
     }
 }
+
