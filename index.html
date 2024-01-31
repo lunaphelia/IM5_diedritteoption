@@ -10,7 +10,6 @@
 <body>
   
     <header>
-      
     <ul class="topnav">
       <li><a class="active" href="/index.html">Startseite</a></li>
       <li><a href="/glossary.html">Glossar</a></li>
@@ -29,7 +28,7 @@
 </header>
 <main>  
 
-    <section id="section1" class="backgroundgradient"> 
+    <section id="section1"> 
         <h1 class="animation">Worum geht es?</h1>
         <p class="animation"><a href="https://www.tgns.ch/de/2023/04/we-exist/" target="_blank">“Für ein neues Geschlechtermodell brauche es zuerst einen 
             gesellschaftlichen Diskurs”</a>, betont der 
@@ -52,9 +51,9 @@
         <div class="animation"><a href="#section2" class="btn">hello</a></div>
     
         </section>
-        <section id="section2" class="backgroundgradient">
+        <section id="section2">
         <h1 class="animation">
-            Here we go. Again!
+            Ist die Gesellschaft bereit?
         </h1>
         <p class="animation">Die gesellschaftliche Wahrnehmung von Geschlecht und 
             die Anerkennung von Diversität haben in den letzten Jahren 
@@ -67,39 +66,30 @@
 
     </section>
   
-    <section id="section3" class="backgroundgradient">
+    <section id="section3">
       <h1 class="animation">So kann Geschlechterdiversität aussehen</h1>
-      <p class="animation">Stell dir vor, die Einteilung in Frau und Mann trifft nicht auf dich zu.</p>
-            <form class="animation">
-                <select name="gender">
-                    <option name="gender" value="male"> Männlich
-                </label>
-                <label>
-                    <option name="gender" value="female"> Weiblich
-                </label>
-                <label>
-                    <option name="gender" value="nonbinary"> Nichtbinär
-                </label>
-            </select>
-
-                <button class="form" type="button" onclick="submitForm()">Absenden</button>
-            </form>
+      <p class="animation">Stell dir vor, die Einteilung in Frau und Mann trifft nicht auf dich zu. Würdest du dich auch eingeengt fühlen, wenn du immer nur zwei Optionen hast anstelle deiner eigenen. Es fängt vor den WC-Türen an und geht weiter bei der Auswahl, ob du lieber mit Frau oder Herr angesprochen wirst. Was wenn keines von beiden? Vielleicht sind dir aber auch die Geschlechterrollen zu blöd geworden und du weigerst dich selbst irgendwo einzuteilen. Dann könnten folgende Optionen schon viel besser sein als nur zwei:</p>
+      <form class="animation" id="form">
+        <label for="gender">Geschlecht:</label>
+        <select name="gender" id="gender">
+            <option value="male">Männlich</option>
+            <option value="female">Weiblich</option>
+            <option value="nonbinary">Nichtbinär</option>
+            <option value="genderfluid">Genderfluid</option>
+            <option value="agender">Agender</option>
+            <option value="twospirit">Two Spirit</option>
+            <option value="sonstiges">Sonstiges</option>
+        </select>
+    
+        <button class="form" type="button" onclick="submitForm()">Absenden</button>
+    </form>
         </section>
   
   </main>    
   
    <footer>
      <p>Linda Muerset - 2023</p>
-     <p><a href="mailto:lindamurset@gmail.com">E-Mail</a></p>
     </footer>
-
-    
     <script src="js/script.js"></script>
-
-
-
 </body>
-
-
-
 </html>

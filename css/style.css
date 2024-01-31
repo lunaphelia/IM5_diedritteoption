@@ -1,7 +1,7 @@
-/* Fonts */
+/* Fonts importieren */
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
-/* Variables */
+/* Root-Variablen für Farben und Gradienten */
 :root {
     --bg-color: #151320;
     --conic-gradient: conic-gradient(
@@ -16,14 +16,14 @@
     );
 }
 
-/* Reset and General Styles  */
-
+/* Reset und allgemeine Stile  */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body-Stile */
 body {
     font-family: 'Inter', sans-serif, Arial, sans-serif;
     background-color: #f2f2f2;
@@ -33,8 +33,6 @@ body {
     justify-content: center;
     scroll-behavior: smooth;
 }
-
-/* Header */
 
 h1 {
     font-size: 3em;
@@ -53,6 +51,8 @@ p {
     padding-top: 20vh;
 }
 
+/* Header-Stile*/
+
 .header {
     color: #0E1111;
     text-align: left;
@@ -60,18 +60,10 @@ p {
     height: 100vh;
     width: 100%;
     box-sizing: border-box;
-    background-image: radial-gradient(circle, #FFED00, #7F5CA3);
+    background-image: radial-gradient(circle, #FFF899, #E7CFFF); /* Farbverlaufhintergrund im Header */
 }
 
-/* Navigation */
-.topnav {
-    overflow: hidden;
-    background-color: #333;
-    position: fixed; /* Set the navbar to fixed position */
-    top: 0; /* Position the navbar at the top of the page */
-    width: 100%; /* Full width */
-    z-index: 3;
-}
+/* Navigation-Stile */
 
 .topnav a {
     float: left;
@@ -80,22 +72,23 @@ p {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-  }
+}
 
 ul.topnav {
     list-style-type: none;
-    position: fixed;
+    position: fixed; /* Fixiert die Navigationsleiste */
     top: 0;
-    width: 100%; /* Make the navbar full width */
+    width: 100%; /* Mache die Navigationsleiste vollständig in der Breite */
     margin: 0;
     padding: 0.1em;
     overflow: hidden;
     background-color: #0E1111;
+    z-index: 3; /* setzt die Navigationsleiste in den Vordergrund, damit andere Elemente nicht überlappen */
 }
 
 ul.topnav li {
     float: left;
-    position: relative; /* Relative positioning for the rectangle */
+    position: relative; /* Relative Positionierung für das Rechteck */
 }
 
 ul.topnav li a {
@@ -108,7 +101,7 @@ ul.topnav li a {
     text-decoration: none;
     border-radius: 2em;
     border: 2px solid transparent;
-    position: relative; /* Relative positioning for the rectangle */
+    position: relative; /* Relative Positionierung für das Rechteck */
     overflow: hidden;
 }
 
@@ -121,27 +114,6 @@ ul.topnav li a::before {
     height: 100%;
     background: var(--bg-color);
     z-index: -1;
-}
-
-ul.topnav li a::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 2em; /* Same border-radius as the main button */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    animation: spin 5s linear infinite;
-    background-image: var(--conic-gradient);
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-    z-index: -2;
-    transition: transform 0.3s ease; /* Add transition for smooth effect */
-}
-
-ul.topnav li a:hover::after {
-    transform: rotate(360deg); /* Trigger the animation on hover */
 }
 
 ul.topnav a:hover:not(.active) {
@@ -158,14 +130,7 @@ ul.topnav li.right {
     float: right;
 }
 
-/* Animation Keyframes */
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* Main */
+/* Hauptbereich-Stile */
 main {
     padding: 0px;
     width: 100%;
@@ -182,8 +147,7 @@ section {
 }
 
 section {
-    background-color: #FFF899; /* Standard-Hintergrundfarbe für ungerade Sections */
-    padding: 20vh 40px;
+    background-color: #FFF899; /* Hintergrundfarbe für ungerade Sections */
 }
 
 section:nth-child(even) {
@@ -210,7 +174,7 @@ section:nth-child(even) {
     position: absolute;
     width: 110%;
     height: 350%;
-    background: var(--conic-gradient);
+    background: var(--conic-gradient); /* Regenbogen Farbverlauf */
 }
 
 .btn::after {
@@ -229,25 +193,26 @@ section:nth-child(even) {
 }
 
 .btn:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); /* macht den Button grösser */
 }
 
 .btn:hover::before {
-    animation: spin 1.5s infinite linear;
+    animation: spin 1.5s infinite linear; /* legt die Zeit für die Drehung des Farbverlaufs fest */
 }
 
 @keyframes spin {
     to {
-        transform: rotate(360deg);
+        transform: rotate(360deg); /* setzt ein Keyframe für die Drehung des Farbverlaufs fest*/
     }
 }
 
+/* Scroll Animation */
+
 .animation {
-    opacity: 0;
-    transform: translateX(-300px);
+    opacity: 0; /* Die Elemente sind zuerst noch transparent */
+    transform: translateX(-300px); /* Rückt die Elemente von links nach rechts ein */
     transition: all 0.7s ease-out;
     transition-delay: 0.4s;
-
 }
 
 .scroll-animation {
@@ -255,12 +220,16 @@ section:nth-child(even) {
     transform: translateX(0);
 }
 
+/* Label Formatierung im Formular auf der About Seite */
 
-/* Form and Scroll Buttons */
 label {
     display: block;
     margin-bottom: 8px;
+    padding: 10px 20px;
+    border-radius: 5em;
 }
+
+/* Formular */
 
 button.form,
 button.scroll {
@@ -269,6 +238,7 @@ button.scroll {
     color: #fff;
     border: none;
     cursor: pointer;
+    border-radius: 5em;
 }
 
 button.scroll {
@@ -277,53 +247,52 @@ button.scroll {
     right: 20px;
 }
 
+select {
+    border-radius: 5em;
+    padding: 10px 20px;
+}
 
-/* newsletter */
-
-/* Style the form element with a border around it */
-  
-  /* Add some padding and a grey background color to containers */
-  .container {
+/* Newsletter-Formular */
+.container {
     padding: 20px;
-  }
-  
-  /* Style the input elements and the submit button */
-  input[type=text], input[type=submit] {
+}
+
+input[type=text],
+input[type=submit] {
     width: 100%;
     padding: 12px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-  }
-  
-  /* Add margins to the checkbox */
-  input[type=checkbox] {
+    border-radius: 5em;
+}
+
+input[type=checkbox] {
     margin-top: 16px;
-  }
-  
-  /* Style the submit button */
-  input[type=submit] {
+}
+
+input[type=submit] {
     background-color: #333;
     color: white;
     border: none;
-    border-radius: 2em;
-  }
-  
-  input[type=submit]:hover {
+    border-radius: 5em;
+}
+
+input[type=submit]:hover {
     opacity: 0.8;
-  }
+}
 
 /* Footer */
 footer {
     background-color: #333;
-    color: #fff;
+    color: yellow;
     padding: 20px;
     text-align: center;
     width: 100%;
 }
 
-/* Glossary */
+/* Glossar */
 .glossary {
     display: flex;
     flex-wrap: wrap;
@@ -345,16 +314,17 @@ footer {
     text-decoration: underline;
 }
 
+/* Übersicht über alle Buchstaben und Verlinkungen zu den Begriffserklärungen */
+
 .glossaryabc {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 .glossaryabc li {
-        float: left;
-      
+    float: left;
 }
 
 .glossaryabc li a {
@@ -363,54 +333,59 @@ footer {
     text-align: center;
     padding: 16px;
     text-decoration: none;
-  }
-  
+}
+
 .glossaryabc li a:hover {
     background-color: #111111;
     color: #FFED00;
-  }
-
-.glossaryentry {
-        display: flex;
-        flex-wrap: nowrap;
-        align-content: center;
-        align-items: center;
 }
 
+/* Glossareinträge */
+
+.glossaryentry {
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+}
+
+/* Seiten Navigation für die Buchstaben Übersicht auf der Glossarseite */
+
 .glossaryabcside {
-    width: 160px; /* Set the width of the sidebar */
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 1; /* Stay on top */
+    width: 160px;
+    position: fixed;
+    z-index: 1;
     top: 15vh;
     right: 0;
-    overflow-x: hidden; /* Disable horizontal scroll */
+    overflow-x: hidden;
     padding-top: 20px;
-  }
-  
-  /* The navigation menu links */
-  .glossaryabcside a {
+}
+
+.glossaryabcside a {
     padding: 0.1em;
     text-decoration: none;
     font-size: 25px;
     color: #7F5CA3;
     display: block;
-  }
-  
-  /* When you mouse over the navigation links, change their color */
-  .glossaryabcside a:hover {
+}
+
+.glossaryabcside a:hover {
     color: #FFED00;
-  }
-  
-  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-    .glossaryabcside {padding-top: 15px;}
-    .glossaryabcside a {font-size: 2em;}
-  }
+}
 
+/* mobile first media queries */
 
-/* Mobile Styles */
+@media screen and (max-height: 450px) {
+    .glossaryabcside {
+        padding-top: 15px;
+    }
+
+    .glossaryabcside a {
+        font-size: 2em;
+    }
+}
+
 @media screen and (max-width: 600px) {
-
     h1 {
         font-size: 2em;
     }
@@ -422,87 +397,75 @@ footer {
 
     .header {
         color: #0E1111;
-        padding: 0em;
         height: 100vh;
         width: 100%;
         box-sizing: border-box;
-        background-image: radial-gradient(circle, #FFF899, #E7CFFF);
+        background-image: radial-gradient(circle, #FFF899, #E7CFFF); /* Farbverlauf Hintergrund im Header */
     }
 
-/* Navigation */
-.topnav {
-    overflow: hidden;
-    background-color: #0E1111;
-    position: fixed; /* Set the navbar to fixed position */
-    top: 0; /* Position the navbar at the top of the page */
-    width: 100%; /* Full width */
-    z-index: 3;
-    padding: 0.1em;
-    margin: 0;
-    flex-direction: column;
-    text-align: left;
-    list-style-type: none;
-}
+    .topnav {
+        overflow: hidden;
+        background-color: #0E1111;
+        position: fixed; /* Setze die Navigationsleiste auf festen Position */
+        top: 0; /* Positioniere die Navigationsleiste oben auf der Seite */
+        width: 100%; /* Volle Breite */
+        z-index: 3;
+        padding: 0.1em;
+        margin: 0;
+        flex-direction: column;
+        text-align: left;
+        list-style-type: none;
+    }
 
-.topnav li {
-    float: none;
-    display: block;
-}
+    ul.topnav li {
+        float: none;
+        display: block;
+    }
 
-ul.topnav li a {
-    width: 6em;
-    height: 1em;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 15px 40px;
-    text-decoration: none;
-    border-radius: 2em;
-    border: 2px solid transparent;
-    position: relative; /* Relative positioning for the rectangle */
-    overflow: hidden;
-}
+    ul.topnav li a {
+        width: 6em;
+        height: 1em;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 15px 40px;
+        text-decoration: none;
+        border-radius: 2em;
+        border: 2px solid transparent;
+        position: relative;
+        overflow: hidden;
+    }
 
-ul.topnav a.active {
-    background-color: #FFED00;
-    color: #7F5CA3;
-}
+    ul.topnav a.active {
+        background-color: #FFED00;
+        color: #7F5CA3;
+    }
 
-.animation {
-    opacity: 1;
-    transform: translateX(0);
-}
+    .animation,
+    .scroll-animation {
+        opacity: 1;
+        transform: translateX(0);
+    }
 
-.scroll-animation {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-    
     .btn {
         font-size: 0.8em;
     }
 
-    main {
-        padding: 10px;
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: fit-content;
     }
 
-    /* Sections */
-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: fit-content;
-}
+    section {
+        background-color: #FFF899; /* Hintergrundfarbe für ungerade Sections */
+    }
 
-section {
-    background-color: #FFF899; /* Standard-Hintergrundfarbe für ungerade Sections */
-}
-
-section:nth-child(even) {
-    background-color: #E7CFFF; /* Hintergrundfarbe für gerade Sections */
-}
+    section:nth-child(even) {
+        background-color: #E7CFFF; /* Hintergrundfarbe für gerade Sections */
+    }
 
     form {
         max-width: 80vw;
@@ -512,6 +475,24 @@ section:nth-child(even) {
     input[type=submit] {
         width: 100%;
     }
+
+.glossaryabcside {
+    width: 10vw;
+    position: fixed;
+    z-index: 1;
+    top: 5vh;
+    right: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.glossaryabcside a {
+    padding: 0.1em;
+    text-decoration: none;
+    font-size: x-small;
+    color: #7F5CA3;
+    display: block;
+}
 
     footer {
         padding: 10px;
